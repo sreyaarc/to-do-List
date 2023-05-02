@@ -1,0 +1,28 @@
+<!-- base template for all the to-do lists -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do List</title>
+</head>
+<body>
+        <!-- <% if(typeOfDay == "Saturday" || typeOfDay == "Sunday") { %>
+            <h1 style="color: rebeccapurple">Hey it's a <%= typeOfDay %> !!</h1>
+        <% } else { %>
+            <h1 style="color: seagreen">Hey it's a <%= typeOfDay %> !!</h1>
+        <% } %> -->
+        <h1><%= typeOfDay %></h1>
+        <ul>
+            <% for(let i=0; i<tasks.length; i++) { %>
+                <li><%= tasks[i] %></li>
+            <% } %>
+        </ul> 
+        <form action="/" method="post">
+            <input type="text" placeholder="Enter your task" name="newTask">
+            <button class="btn" type="submit" name="button">ADD</button>
+        </form>
+        
+</body>
+</html>
