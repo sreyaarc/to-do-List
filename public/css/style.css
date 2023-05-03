@@ -1,0 +1,100 @@
+body {
+    background-color: #9384D1;
+    margin: 0;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+.btn {
+    text-align: center;
+}
+button {
+    background-color: #9384D1;
+    color: white;
+    border: none;
+    padding: 11.5px 30px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 285px;
+    margin: 15px 15px 20px 15px;
+    box-shadow: 2px 5px 6px grey;
+}
+button:hover {
+    background-color: #7149C6;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    margin: 50px auto 20px;
+    background-color: white;
+    border-radius: 30px;
+    color: #4F4557;
+    position: relative;
+}
+h2 {
+    letter-spacing: 1.2px;
+    margin: 30px auto 10px;
+    text-align: center;
+}
+.img {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+li, input[type="text"] {
+    list-style: none;
+    border: none;
+    border-radius: 30px;
+    padding: 15px;
+    margin: 15px;
+    width: 250px;
+    box-shadow: 2px 5px 10px grey;
+    color: #4F4557;
+    font-size: 1.1rem;
+}
+input[type="text"] {
+    margin-bottom: 0;
+    text-align: center;
+}
+input[type="text"]:focus {
+    outline: none;
+    border-bottom: 5px solid #9384D1;
+}
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+input[type="checkbox"]:checked {
+    accent-color: #9384D1;
+}
+input[type="checkbox"]:checked + span.strike {
+    text-decoration: line-through;
+}
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    width: 750px;
+    margin: auto;
+    align-items: center;
+}
+span.del {
+    color: rgb(228, 54, 54);
+    float: right;
+}
+.text {
+    margin: 10px 20px 20px 20px;
+    padding: 4px;
+    word-spacing: 2px;
+    text-align: justify;
+}
+.time {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+    .mainContainer {
+        flex-direction: column;
+        width: auto;
+    }
+}
