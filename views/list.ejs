@@ -1,28 +1,54 @@
-<!-- base template for all the to-do lists -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>to-do List</title>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
 </head>
-<body>
-        <!-- <% if(typeOfDay == "Saturday" || typeOfDay == "Sunday") { %>
-            <h1 style="color: rebeccapurple">Hey it's a <%= typeOfDay %> !!</h1>
-        <% } else { %>
-            <h1 style="color: seagreen">Hey it's a <%= typeOfDay %> !!</h1>
-        <% } %> -->
-        <h1><%= typeOfDay %></h1>
-        <ul>
-            <% for(let i=0; i<tasks.length; i++) { %>
-                <li><%= tasks[i] %></li>
-            <% } %>
-        </ul> 
-        <form action="/" method="post">
-            <input type="text" placeholder="Enter your task" name="newTask">
-            <button class="btn" type="submit" name="button">ADD</button>
-        </form>
+<body> 
+    <div class="mainContainer">
+        <div class="container">
+            <div class="box">
+                <h2><%= generalDate %></h2> 
+                <h2 class="time"><%= currentTime %></h2>
+            </div>
+            <div>
+                <img src="/images/tasks.png" alt="tasks" class="img">
+            </div>
+            <div class="text">
+                The time when you had to jot down your daily tasks in your brain has gone!! Use this task manager to save your sanity and be up to date with your daily stuff!! 
+            </div>
+        </div>
+        <div class="container">
+            <div class="box">
+                <h2><%= typeOfDay %></h2>
+            </div>
+            <div class="box">
+                <div class="item">
+                    <% for(let i=0; i<tasks.length; i++) { %>
+                        <li class="listItem"><input type="checkbox" name="" id=""><span class="strike"><%= tasks[i] %></span><span class="del">&#x2718;</span></li>
+                    <% } %>
+                </div>
+                <form action="" method="post">
+                    <input type="text" name="inputTask" placeholder="Enter your task" autocomplete="off">
+                    <div class="btn">
+                        <button type="submit">+</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
         
 </body>
 </html>
