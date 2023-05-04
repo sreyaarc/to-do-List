@@ -3,10 +3,11 @@ body {
     margin: 0;
     font-family: 'Merriweather Sans', sans-serif;
 }
-.btn {
+/* .btn {
     text-align: center;
-}
+} */
 button {
+    display: block;
     background-color: #9384D1;
     color: white;
     border: none;
