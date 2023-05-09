@@ -79,6 +79,17 @@ input[type="checkbox"]:checked + span.strike {
     margin: auto;
     align-items: center;
 }
+.workList {
+    color: white;
+    letter-spacing: 1.2px;
+    /* text-decoration: none; */
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+.workList:hover {
+    color: #4F4557;
+}
 span.del {
     color: rgb(228, 54, 54);
     float: right;
