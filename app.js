@@ -10,37 +10,51 @@ const __dirname = dirname(__filename);
 
 app.set('view engine', 'ejs');  
 
-let tasks = [];
+import * as dateFunctions from "./modules.js";
+let generalDate = dateFunctions.getGeneralDate();
+let currentDay = dateFunctions.currentDay();
+let typeOfDay = dateFunctions.typeOfDay();
 
 app.use(express.static(path.join(__dirname , "/public")));
 
 app.get("/", (req, res) => {
-    let today = new Date();
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let options = {
-        day : "numeric",
-        month: "long",
-        year: "numeric"
-    };
-    
-    let generalDate = today.toLocaleDateString("en-US", options);
-    let typeOfDay = `${days[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}`
-
     res.render("list", {
         generalDate: generalDate, 
-        currentTime: today.toLocaleTimeString(),
-        typeOfDay: typeOfDay,
-        tasks: tasks});
+        currentDay: currentDay,
+        listTitle: typeOfDay,
+        tasks: tasks,
+        page: "WorkList",
+        pageLink: "/work"
+    });
 });
 
 app.use(express.urlencoded({extended: true}));
+
+let tasks = [];
 app.post("/", (req, res) => {
     // res.send(`<h2>${req.body.newTask}</h2>`)
+    console.log(req.body);
     let task = req.body.inputTask;
-    tasks.push(task);
 
-    res.redirect("/");
+    if(req.body.buttonAttr == "Work") {
+        workTitle.push(task);
+        res.redirect("/work");
+    } else {
+        tasks.push(task);
+        res.redirect("/");
+    }   
+})
+
+let workTitle = [];
+app.get("/work", (req, res) => {
+    res.render("list", {
+        generalDate: generalDate, 
+        currentDay: currentDay,
+        listTitle: "Work List",
+        tasks: workTitle,
+        page: "Home",
+        pageLink: "/"
+    })
 })
 
 const port = process.env.PORT || 3000;
