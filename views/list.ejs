@@ -17,11 +17,13 @@
     <link rel="manifest" href="/icons/site.webmanifest">
 </head>
 <body> 
+    <nav class="navBar"><a href=".<%= pageLink %>" class="workList"><%= page %></a></nav>
     <div class="mainContainer">
+        
         <div class="container">
             <div class="box">
                 <h2><%= generalDate %></h2> 
-                <h2 class="time"><%= currentTime %></h2>
+                <h2 class="time"><%= currentDay %></h2>
             </div>
             <div>
                 <img src="/images/tasks.png" alt="tasks" class="img">
@@ -32,7 +34,7 @@
         </div>
         <div class="container">
             <div class="box">
-                <h2><%= typeOfDay %></h2>
+                <h2><%= listTitle %></h2>
             </div>
             <div class="box">
                 <div class="item">
@@ -40,11 +42,9 @@
                         <li class="listItem"><input type="checkbox" name="" id=""><span class="strike"><%= tasks[i] %></span><span class="del">&#x2718;</span></li>
                     <% } %>
                 </div>
-                <form action="" method="post">
+                <form action="/" method="post">
                     <input type="text" name="inputTask" placeholder="Enter your task" autocomplete="off">
-                    <div class="btn">
-                        <button type="submit">+</button>
-                    </div>
+                    <button type="submit" name="buttonAttr" value= <%= listTitle %>>+</button>
                 </form>
             </div>
         </div>
