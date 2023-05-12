@@ -55,6 +55,23 @@ li, input[type="text"] {
     color: #4F4557;
     font-size: 1.1rem;
 }
+.listItem {
+    display: flex;
+    align-items: flex-start;
+}
+.del {
+    margin-left: 5px;
+    color: rgb(228, 54, 54);
+    float: right;
+}
+.del:hover {
+    cursor: pointer;
+}
+.strike {
+    /* width: 200px; */
+    margin-left: 10px;
+    flex-grow: 1;
+}
 input[type="text"] {
     margin-bottom: 0;
     text-align: center;
@@ -79,7 +96,7 @@ input[type="checkbox"]:checked + span.strike {
     margin: auto;
     align-items: center;
 }
-.workList {
+.customList {
     color: white;
     letter-spacing: 1.2px;
     /* text-decoration: none; */
@@ -87,12 +104,8 @@ input[type="checkbox"]:checked + span.strike {
     right: 25px;
     top: 20px;
 }
-.workList:hover {
+.customList:hover {
     color: #4F4557;
-}
-span.del {
-    color: rgb(228, 54, 54);
-    float: right;
 }
 .text {
     margin: 10px 20px 20px 20px;
@@ -104,9 +117,27 @@ span.del {
     margin-top: 0;
 }
 
+
+/* .del {
+    background-color: transparent;
+    color: rgb(228, 54, 54);
+    float: right;
+    border: 2px solid;
+    font-size: 1p;
+    width: 1px;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0 10px 0 10px;
+} */
+
+
 @media (max-width: 800px) {
     .mainContainer {
         flex-direction: column;
         width: auto;
     }
 }
+
+
+
+
