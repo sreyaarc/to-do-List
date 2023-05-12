@@ -17,7 +17,7 @@
     <link rel="manifest" href="/icons/site.webmanifest">
 </head>
 <body> 
-    <nav class="navBar"><a href=".<%= pageLink %>" class="workList"><%= page %></a></nav>
+    <nav class="navBar"><a href="/" class="customList"><%= page %></a></nav>
     <div class="mainContainer">
         
         <div class="container">
@@ -38,13 +38,19 @@
             </div>
             <div class="box">
                 <div class="item">
-                    <% for(let i=0; i<tasks.length; i++) { %>
-                        <li class="listItem"><input type="checkbox" name="" id=""><span class="strike"><%= tasks[i] %></span><span class="del">&#x2718;</span></li>
-                    <% } %>
+                    <% tasks.forEach((task) => { %>
+                        <form action="/delete" method="post">
+                            <li class="listItem">
+                                <input type="checkbox" name="isCheck" value="<%= task._id %>" onchange="submit()">
+                                <span class="strike"><%= task.name %></span>
+                            </li>
+                            <input type="hidden" name="hiddenInput" value="<%= listTitle %>"></input>
+                        </form>
+                    <% }) %>
                 </div>
                 <form action="/" method="post">
                     <input type="text" name="inputTask" placeholder="Enter your task" autocomplete="off">
-                    <button type="submit" name="buttonAttr" value= <%= listTitle %>>+</button>
+                    <button type="submit" name="buttonAttr" value="<%= listTitle %>">+</button>
                 </form>
             </div>
         </div>
